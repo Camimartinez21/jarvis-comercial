@@ -1,0 +1,58 @@
+# Configuración de Hermes para la agente comercial de Cami.
+# La copia arranque.sh a /opt/data/config.yaml en cada inicio: se cambia aquí, no en el servidor.
+# Después de cambiarla: commit + push → Railway vuelve a desplegar.
+
+model:
+  provider: "deepseek"
+  default: "deepseek-flash"        # main y cheap (precios verificados 2026-10-29 en api-docs.deepseek.com)
+
+terminal:
+  backend: local                   # dentro de Railway el contenedor es el sandbox; sin socket de Docker
+  cwd: "/opt/data/jarvis"          # aquí viven AGENTS.md, TASKS.md, memory/ y bin/
+
+approvals:
+  mode: smart
+  timeout: 300
+  cron_mode: deny
+  single_query_mode: deny
+  unattended_mode: deny
+  mcp_reload_confirm: true
+  destructive_slash_confirm: true
+  deny:
+    - "rm -rf*"
+    - "*curl*|*sh*"
+    - "*wget*|*sh*"
+    - "git push --force*"
+    - "*sudo *"
+    - "*~/.ssh*"
+    - "*.env*"
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  write_approval: false
+
+skills:
+  write_approval: false
+  guard_agent_created: true
+  create_dir: /opt/data/jarvis/skills-learned
+  external_dirs:
+    - /opt/data/jarvis/skills
+
+curator:
+  enabled: true
+  consolidate: false
+
+security:
+  allow_private_urls: false
+
+stt:
+  enabled: true
+  provider: "local"
+  local:
+    model: "base"
+    language: "es"
+
+unauthorized_dm_behavior: ignore
