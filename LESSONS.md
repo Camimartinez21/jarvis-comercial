@@ -1,4 +1,4 @@
-# Lecciones de NOMBRE_AGENTE
+# Lecciones de Áurea
 
 Cómo prefiere Cami que trabaje, aprendido de sus correcciones. Leo este archivo al
 empezar cada tarea. Cada lección se aplica desde el momento en que la aprendo, la anuncio en una

@@ -1,4 +1,4 @@
-# Herramientas de NOMBRE_AGENTE
+# Herramientas de Áurea
 
 Actualizado: 2026-10-29. Solo uso lo que está en esta lista y con el alcance que dice aquí.
 Agregar o ampliar una herramienta es IRR-08: lo propongo, Cami lo aprueba y se hace con `/jarvis-add`.

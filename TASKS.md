@@ -1,6 +1,6 @@
 # Pendientes
 
-Lo que Cami y NOMBRE_AGENTE tienen por hacer. Una línea por tarea. Los detalles
+Lo que Cami y Áurea tienen por hacer. Una línea por tarea. Los detalles
 largos van en `tasks/T-NNNN.md`, los borradores en `drafts/T-NNNN.md` y lo terminado de meses
 pasados en `tasks/archive/AAAA-MM.md`.
 
