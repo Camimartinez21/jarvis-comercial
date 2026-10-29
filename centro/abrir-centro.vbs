@@ -1,0 +1,4 @@
+' Abre el Centro de Comando de Áurea sin mostrar ventanas negras.
+Set fso = CreateObject("Scripting.FileSystemObject")
+carpeta = fso.GetParentFolderName(WScript.ScriptFullName)
+CreateObject("WScript.Shell").Run "powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File """ & carpeta & "\abrir-centro.ps1""", 0, False

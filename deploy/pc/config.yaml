@@ -1,0 +1,68 @@
+# Configuración de Hermes para la agente comercial de Cami.
+# Versión para el PC de Cami (Windows). La copia instalar-pc.ps1 a C:/Users/HP/Aurea/config.yaml.
+# Después de cambiarla: correr deploy/pc/instalar-pc.ps1 y reiniciar el gateway.
+
+model:
+  provider: "deepseek"
+  default: "deepseek-flash"        # main y cheap (precios verificados 2026-10-29 en api-docs.deepseek.com)
+
+terminal:
+  backend: local                   # en el PC de Cami
+  cwd: "C:/Users/HP/Aurea/jarvis"          # aquí viven AGENTS.md, TASKS.md, memory/ y bin/
+
+approvals:
+  mode: smart
+  timeout: 300
+  cron_mode: deny
+  single_query_mode: deny
+  unattended_mode: deny
+  mcp_reload_confirm: true
+  destructive_slash_confirm: true
+  deny:
+    - "rm -rf*"
+    - "*curl*|*sh*"
+    - "*wget*|*sh*"
+    - "git push --force*"
+    - "*sudo *"
+    - "*~/.ssh*"
+    - "*.env*"
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  write_approval: false
+
+skills:
+  write_approval: false
+  guard_agent_created: true
+  create_dir: C:/Users/HP/Aurea/jarvis/skills-learned
+  external_dirs:
+    - C:/Users/HP/Aurea/jarvis/skills
+
+curator:
+  enabled: true
+  consolidate: false
+
+security:
+  allow_private_urls: false
+
+stt:
+  enabled: true
+  provider: "local"
+  local:
+    model: "base"
+    language: "es"
+
+unauthorized_dm_behavior: ignore
+
+# Voz para hablarle en el PC (gratis): Edge TTS con voz chilena.
+tts:
+  provider: "edge"
+  edge:
+    voice: "es-CL-CatalinaNeural"
+
+voice:
+  auto_tts: false                  # la voz se activa con /voice on (terminal) o en el Centro de Comando
+  stop_phrases: ["stop", "para", "chao áurea"]

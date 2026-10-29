@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Áurea · Centro de Comando</title>
+  <link rel="icon" href="icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="centro.css">
+</head>
+<body>
+  <div class="cielo" aria-hidden="true"></div>
+
+  <header class="barra">
+    <div class="marca">
+      <span class="marca-nombre">Áurea</span>
+      <span class="marca-sub">Centro de Comando</span>
+    </div>
+    <div class="reloj">
+      <span id="hora">--:--</span>
+      <span id="fecha" class="reloj-fecha"></span>
+    </div>
+    <div id="estado" class="estado" data-ok="cargando">
+      <span class="estado-punto"></span>
+      <span id="estado-texto">Conectando…</span>
+    </div>
+  </header>
+
+  <main class="tablero">
+    <section class="columna" aria-label="Tu día">
+      <div class="panel">
+        <h2>Lo que hará hoy</h2>
+        <ul id="trabajos" class="lista-trabajos"><li class="vacio">Cargando…</li></ul>
+      </div>
+      <div class="panel">
+        <h2>Pendientes</h2>
+        <ul id="pendientes" class="lista-simple"><li class="vacio">Cargando…</li></ul>
+      </div>
+    </section>
+
+    <section class="centro" aria-label="Hablar con Áurea">
+      <div class="nucleo" id="nucleo" data-modo="reposo">
+        <div class="halo"></div>
+        <div class="orbe">
+          <div class="orbe-brillo"></div>
+          <div class="orbe-borde"></div>
+        </div>
+        <div class="ondas"><span></span><span></span><span></span></div>
+      </div>
+      <p id="modo-texto" class="modo-texto">Toca el micrófono o aprieta espacio para hablarme</p>
+
+      <div id="conversacion" class="conversacion" aria-live="polite"></div>
+
+      <form id="formulario" class="entrada" autocomplete="off">
+        <button type="button" id="microfono" class="microfono" aria-label="Hablar con Áurea">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+        </button>
+        <input id="texto" type="text" placeholder="O escríbele a Áurea…" maxlength="4000">
+        <button type="submit" class="enviar" aria-label="Enviar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13.2l-5.6-5.6L13 5l8 8-8 8-1.4-1.4 5.6-5.6H4z"/></svg>
+        </button>
+      </form>
+      <label class="continua">
+        <input type="checkbox" id="continua" checked>
+        <span>Conversación continua: después de responder, vuelvo a escucharte</span>
+      </label>
+    </section>
+
+    <section class="columna" aria-label="Tus negocios">
+      <div id="negocios" class="negocios">
+        <div class="panel"><p class="vacio">Cargando tus negocios…</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="centro.js"></script>
+</body>
+</html>

@@ -35,3 +35,12 @@ Telegram, desde el celular o desde el PC (Telegram Desktop o web.telegram.org). 
 ## Medios
 - Voz a texto: faster-whisper modelo `base` dentro del servidor (stt local). Si no está en la imagen, el `Dockerfile` instala `faster-whisper==1.2.1`.
 - Video: no instalado en esta versión.
+
+## En el PC de Cami (versión gratis, desde 2026-10-29)
+- **Hermes** vive en `C:\Users\HP\Aurea` (v0.22.5). Llaves en `C:\Users\HP\Aurea\.env` (las pega Cami).
+- **Ícono «Áurea»** en el escritorio: enciende Áurea si está apagada, enciende el Centro de Comando
+  (`centro/server.mjs`, solo en 127.0.0.1:7879) y abre la ventana en Edge. Voz: micrófono y voz de Edge.
+- **Ícono «Hablar con Áurea»**: la versión de terminal (`/voice on`, Ctrl+B).
+- Áurea solo trabaja mientras el PC esté prendido y se haya abierto el ícono (o Claude la haya encendido).
+- Cambios de reglas o personalidad: editar aquí y correr `deploy/pc/instalar-pc.ps1`, luego cerrar y
+  abrir Áurea.
